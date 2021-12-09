@@ -4,23 +4,23 @@
 ### 4. Kubernetes deploy app on gcloud
 ### 5. Initialize db inside gcloud deployment
 
+##### instead of <> insert your id
 
-docker build -t flask-chat1 .
+docker build -t <image-id> .
 
-docker tag flask-chat1 gcr.io/lofty-voyage-333810/flask-chat1
-
-
-
-
-
-docker push gcr.io/lofty-voyage-333810/flask-chat1
+docker tag flask-chat1 gcr.io/<project-id>/<image-id>
 
 
 
 
 
-gcloud container clusters get-credentials chat-cluster1 --zone europe-central2-b --project lofty-voyage-333810
+docker push gcr.io/<project-id>/<image-id>
 
+
+
+
+
+gcloud container clusters get-credentials <image-id> --zone europe-central2-b --project <project-id>
 
 
 
@@ -31,7 +31,7 @@ kubectl apply -f deployment.yaml
 
 
 
-kubectl exec -it flask-5557568994-cm6h4 bash
+kubectl exec -it <service-pod id> bash
 
 
 flask db init 
